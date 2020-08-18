@@ -7,7 +7,7 @@ function check() {
  
   postsA.forEach(function (post) { // ここのpostは1件の投稿
       if (post.getAttribute("data-load") != null) {   // 2? 一周目はdata-loadが無いのでif文は無視される
-       return null; // 二周目はtrueが入ってreturn null;が読まれるので、ここで処理が終わる
+       return null; // 二周目はdata-loadにtrueが入るので「真」になり、return null;が読まれるので、ここで処理が終わる
      }
      post.setAttribute("data-load", "true");
     // 投稿をクリックした場合に実行する処理を定義している

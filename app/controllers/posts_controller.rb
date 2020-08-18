@@ -4,16 +4,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content], checked: false)
+    render json:{ post: post }
   end
 
   def checked
     post = Post.find(params[:id])
     if post.checked then # 3? 
-      post.update(checked: false) # A.Recordのupdateで更新
+      post.update(checked: false) # A.Recordのupdateで更新。既読していれば「既読を解除するためにfalseへ変更」
     else
-      post.update(checked: true)
+      post.update(checked: true) # 既読していなければ「既読にするためtrueへ変更」
     end
 
     item = Post.find(params[:id])
