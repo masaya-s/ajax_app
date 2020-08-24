@@ -51,7 +51,7 @@ function check() {
       };
  
       // (イベントハンドラーが実行し終わったら今回の)イベントをキャンセルして、処理が重複しないようにしている
-      e.preventDefault(); // 1? この場合 post.addEventListener("click", (e) => に紐付けているので、クリックされたらここまで読んだら処理を止める
+      e.preventDefault(); // 1? この場合 post.addEventListener("click", (e) => に紐付けている。e部分は任意
 
     });
   });
